@@ -1,4 +1,4 @@
-var tarefas =[
+var todos =[
     {
         text: 'Aprender HTML, CSS e Javascript',
         done: true
@@ -12,10 +12,26 @@ var tarefas =[
         done: false
     }
 ];
+
 const todosApp = {
     data(){
         return{
-            todos: window.tarefas
+            todos: window.todos,
+            newTodo: {
+                done: false
+            }
+        }
+    },
+    methods: {
+        addTodo: function(){
+            if(this.todos.text){
+                this.todos.push(this.newTodo);
+                this.newTodo = {
+                done: false
+                };
+            }else{
+                alert("Todo text is required")
+            }          
         }
     }
 };
